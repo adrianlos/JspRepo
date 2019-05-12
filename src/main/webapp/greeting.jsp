@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Hello</title>
@@ -14,8 +15,8 @@
     <jsp:useBean id="myUser" class="pl.jnowacki.User" scope="page"></jsp:useBean>
     <jsp:setProperty name="myUser" property="*"></jsp:setProperty>
 
-    <h1>Hello <jsp:getProperty name="myUser" property="name"></jsp:getProperty></h1>
-    <h1>Your last name <jsp:getProperty name="myUser" property="lastName"></jsp:getProperty></h1>
-    <h1>Your gender <jsp:getProperty name="myUser" property="gender"></jsp:getProperty></h1>
+    <h1>Hello ${myUser.name}</h1>
+    <h1>Your last name ${myUser.lastName}</h1>
+    <h1>Your gender  ${myUser.gender}</h1>
 </body>
 </html>
