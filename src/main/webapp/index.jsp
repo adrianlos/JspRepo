@@ -1,7 +1,6 @@
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.stream.IntStream" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Arrays" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: jedrz
   Date: 12.05.2019
@@ -15,24 +14,15 @@
 </head>
 <body>
 
-<%!
-    private int[] createTable(int a, int b) {
-        return IntStream.rangeClosed(a, b).toArray();
-    }
-
-    private String time = "time";
-%>
-
-<ol>
-    <%
-        int[] myTable = createTable(21, 37);
-
-        for (int i = 0; i < myTable.length; i++) { %>
-            <li><%= myTable[i] + " " + time + (myTable[i] != 1 ? "s" : "")%></li>
-    <%
-        }
-    %>
-</ol>
+<form>
+    Name:<br><input type="text" name="name"><br>
+    Last Name:<br><input type="text" name="lastName"><br>
+    Gender:<br>
+    <input type="radio" name="gender" value="male">Male<br>
+    <input type="radio" name="gender" value="female">Female<br>
+    <input type="radio" name="gender" value="other">Other<br>
+    <input type="submit">
+</form>
 
 </body>
 </html>
