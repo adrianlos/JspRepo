@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form>
+<form action="greeting.jsp">
     Name:<br><input type="text" name="name"><br>
     Last Name:<br><input type="text" name="lastName"><br>
     Gender:<br>

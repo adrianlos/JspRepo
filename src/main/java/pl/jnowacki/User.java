@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     private String name;
-    private String password;
-    private int age;
+    private String lastName;
+    private String gender;
 
     public User(){}
 
@@ -18,19 +18,19 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
