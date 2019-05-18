@@ -20,8 +20,8 @@
 </head>
 <body>
 
-<form method="post">
-    <input type="hidden" name="submitted" value="true">
+<form method="post" action="/">
+    <input type="hidden" name="submitted" value="submitted">
     Title:<br><input type="text" name="title"><br>
     Artist:<br><input type="text" name="artist"><br>
     Year:<br><input type="text" name="year"><br>
@@ -35,30 +35,7 @@
     <input type="submit">
 </form>
 
-<%
-    if(session.getAttribute("albums") == null) {
-        session.setAttribute("albums", new ArrayList<Album>());
-    }
-%>
-
-<c:if test="${param.submitted}">
-    <jsp:useBean id="newAlbum" class="pl.jnowacki.Album"/>
-    <jsp:setProperty name="newAlbum" property="*"/>
-
-    <c:choose>
-        <c:when test="${!newAlbum.valid}">
-            Album data invalid!
-        </c:when>
-        <c:otherwise>
-           <%
-               newAlbum.setAddedDate(new Date());
-               ((List<Album>)session.getAttribute("albums")).add(newAlbum);
-           %>
-        </c:otherwise>
-    </c:choose>
-</c:if>
-
-<c:if test="${albums.size() > 0}">
+<c:if test="${sessionScope.albums.size() > 0}">
     Albums:
     <table>
         <tr>
@@ -68,7 +45,7 @@
         <th>Genre</th>
         <th>Created on</th>
         </tr>
-    <c:forEach items="${albums}" var="album">
+    <c:forEach items="${sessionScope.albums}" var="album">
         <tr>
             <td>${album.title}</td>
             <td>${album.artist}</td>
