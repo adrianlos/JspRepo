@@ -12,6 +12,7 @@ public class Album implements Serializable {
     private Date addedDate;
 
     public Album() {
+        this.addedDate = new Date();
     }
 
     public String getTitle() {

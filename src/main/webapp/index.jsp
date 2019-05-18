@@ -46,15 +46,14 @@
     <jsp:setProperty name="newAlbum" property="*"/>
 
     <c:choose>
-        <c:when test="${!newAlbum.valid}">
-            Album data invalid!
+        <c:when test="${newAlbum.valid}">
+            <%
+                ((List<Album>)session.getAttribute("albums")).add(newAlbum);
+            %>
         </c:when>
         <c:otherwise>
-           <%
-               newAlbum.setAddedDate(new Date());
-               ((List<Album>)session.getAttribute("albums")).add(newAlbum);
-           %>
-        </c:otherwise>
+        Album data invalid!<br>
+    </c:otherwise>
     </c:choose>
 </c:if>
 
